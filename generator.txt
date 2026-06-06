@@ -1,0 +1,17 @@
+- Standard library only (secrets, string, argparse)
+- Import rule functions from password_checker.py
+- CLI flags via argparse:
+    --length INT       default=16
+    --no-upper         exclude uppercase
+    --no-lower         exclude lowercase
+    --no-digits        exclude digits
+    --no-symbols       exclude symbols
+    --count INT        generate N passwords, default=1
+- Algorithm:
+    1. Build charset from selected sets
+    2. Guarantee at least 1 char from each selected set
+       using secrets.choice()
+    3. Fill remaining length with secrets.choice(charset)
+    4. Shuffle with secrets.SystemRandom().shuffle()
+- Print each generated password + its strength score
+- Warn if no character sets are selected

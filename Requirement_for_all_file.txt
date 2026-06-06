@@ -1,0 +1,6 @@
+- Standard library only, no pip installs
+- Well-commented, beginner-readable
+- Consistent imports across files
+- Each file runnable independently
+- Include a if __name__ == "__main__": block
+  in every .py file

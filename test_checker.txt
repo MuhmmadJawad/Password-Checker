@@ -1,0 +1,23 @@
+- Standard library only (unittest, unittest.mock)
+- Mock the blacklist load so tests are self-contained
+- Test every rule function:
+    check_length        → "hello" fails, "password1!" passes
+    check_long          → "short" fails, "averylongpassword" passes
+    check_uppercase     → "noupper" fails, "HasUpper" passes
+    check_lowercase     → "NOLOWER" fails, "HasLower" passes
+    check_digit         → "nodigits" fails, "has1digit" passes
+    check_symbol        → "nosymbol" fails, "has@symbol" passes
+    check_not_common    → "password" fails, "xK9#mP2$qL" passes
+    check_no_repeats    → "aaa123" fails, "abc123" passes
+- Test scoring function with known inputs
+- Edge cases:
+    empty string ""
+    single character "a"
+    all symbols "!@#$%^&*()"
+    extremely long password (200 chars)
+    password from common list
+    password with spaces
+    unicode characters
+- Minimum 20 test cases
+- Run with: python -m pytest test_checker.py -v
+  OR: python test_checker.py
